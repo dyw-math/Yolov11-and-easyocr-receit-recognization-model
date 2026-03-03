@@ -1,0 +1,1 @@
+# Yolov11-and-easyocr-receit-recognization-model
