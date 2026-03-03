@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 3
+names: ['TEL', 'date', 'total']
+
+roboflow:
+  workspace: rbfl7dyw
+  project: tft-id-pjpn2
+  version: 2
+  license: MIT
+  url: https://app.roboflow.com/rbfl7dyw/tft-id-pjpn2/2
