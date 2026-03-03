@@ -67,6 +67,7 @@ dataset = version.download("yolov11")
 ダウンロードされたデータセット（例：`receit-tel-date-total`）は、以下のような構造になります：
 
 ```
+receit-tel-date-total-2
 ├── train/
 │   ├── images/
 │   └── labels/
@@ -78,7 +79,7 @@ dataset = version.download("yolov11")
     └── labels/
 ```
 
-プロジェクトでは、このデータセットを `datasets/TFT-ID-2/` に配置することで、学習時の標準構成に合わせています。
+プロジェクトでは、このデータセットを `datasets/receit-tel-date-total-2/` に配置することで、学習時の標準構成に合わせています。
 
 ---
 
@@ -89,10 +90,10 @@ dataset = version.download("yolov11")
 ### 学習コマンド例
 
 ```python
-!yolo detect train data=TFT-ID-2/data.yaml model=yolo11n.pt epochs=50 imgsz=640
+!yolo detect train data=receit-tel-date-total-2/data.yaml model=yolo11n.pt epochs=50 imgsz=640
 ```
 
-- `data=TFT-ID-2/data.yaml`：データセット設定ファイル（学習・検証・テストパスおよびクラス情報を定義）  
+- `data=receit-tel-date-total-2/data.yaml`：データセット設定ファイル（学習・検証・テストパスおよびクラス情報を定義）  
 - `model=yolo11n.pt`：事前学習済み YOLOv11n モデルを初期重みとして使用  
 - `epochs=50`：学習エポック数  
 - `imgsz=640`：入力画像サイズ（640×640）  
