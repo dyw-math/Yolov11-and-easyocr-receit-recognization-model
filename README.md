@@ -57,17 +57,16 @@ Roboflow API を利用してデータセットを取得します。以下は Pyt
 ```python
 from roboflow import Roboflow
 rf = Roboflow(api_key="YOUR_ROBOFLOW_API_KEY")  # ご自身の API キーに置き換えてください
-project = rf.workspace("rbfl7dyw").project("tft-id-pjpn2")
+project = rf.workspace("rbfl7dyw").project("receit-tel-date-total")
 version = project.version(2)
 dataset = version.download("yolov11")
 ```
 
 ### 4.2 データセット構成
 
-ダウンロードされたデータセット（例：`TFT-ID-2`）は、以下のような構造になります：
+ダウンロードされたデータセット（例：`receit-tel-date-total`）は、以下のような構造になります：
 
 ```
-TFT-ID-2/
 ├── train/
 │   ├── images/
 │   └── labels/
