@@ -145,14 +145,4 @@ ocr_text = reader.readtext(cropped_img, detail=0)
 - 元画像上に YOLOv11 のバウンディングボックスを描画  
 - 各ボックス付近にクラス名・信頼度・OCR認識結果を表示  
 
-### フォント設定の重要ポイント
-
-日本語文字を `matplotlib` 上で正しく表示するため、以下の設定を行っています：
-
-1. `fonts-wqy-zenhei` フォントパッケージをインストール  
-2. `matplotlib` のフォントキャッシュ（例：`/root/.cache/matplotlib`）を削除  
-3. `matplotlib.font_manager.findSystemFonts()` によりフォントキャッシュを再構築  
-4. `fm.fontManager.ttflist` を確認し、正確なフォント名（通常は `"WenQuanYi Zen Hei"`）を取得  
-5. `plt.rcParams['font.sans-serif']` に設定し、`plt.rcParams['axes.unicode_minus'] = False` を指定して負号表示を正常化  
-
 これにより、OCR結果を含む可視化画像を正しく表示することが可能になります。
