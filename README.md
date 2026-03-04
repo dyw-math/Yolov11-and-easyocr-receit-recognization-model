@@ -20,7 +20,7 @@
 
 - **高精度なモデル性能**：YOLOv11 モデルは検証データセットにおいて `mAP50 = 0.976`、`mAP50-95 = 0.66` を達成し、レシート内の重要項目を高精度に検出可能であることを確認しました。  
 - **エンドツーエンド統合システムの構築**：YOLOv11 の高精度物体検出と EasyOCR の多言語OCR機能を統合し、完全自動化された情報抽出システムを実装しました。  
-- **漢字表示問題の解決**：`matplotlib` のフォント設定を最適化することで、漢字文字の文字化けや欠落問題を解決し、認識結果を正確に可視化できるようにしました。  
+- **日本語表示問題の解決**：`matplotlib` のフォント設定を最適化することで、日本語文字の文字化けや欠落問題を解決し、認識結果を正確に可視化できるようにしました。  
 - **柔軟な閾値調整**：検出信頼度の閾値を下げることで、潜在的な対象をより多く検出可能であり、用途に応じた柔軟な運用が可能です。  
 
 ---
@@ -34,7 +34,7 @@ pip install "ultralytics<=8.3.40" supervision roboflow easyocr opencv-python mat
 # ultralytics のトラッキング機能を無効化
 yolo settings sync=False
 
-# matplotlib 用の漢字フォントをインストール
+# matplotlib 用の日本語フォントをインストール
 sudo apt-get update -qq
 sudo apt-get install -y fonts-wqy-zenhei
 ```
@@ -43,7 +43,7 @@ sudo apt-get install -y fonts-wqy-zenhei
 
 - `ultralytics` のバージョンは互換性確保のため `8.3.40` に固定しています。  
 - `easyocr` は初回実行時にモデルファイルを自動ダウンロードします。インターネット接続をご確認ください。  
-- `matplotlib` の漢字フォント設定は、実行環境によって追加設定が必要な場合があります。  
+- `matplotlib` の日本語フォント設定は、実行環境によって追加設定が必要な場合があります。  
 
 ---
 
@@ -124,13 +124,13 @@ results = model.predict(source=image_path, save=True, conf=0.5, iou=0.7)
 
 ### 6.2 EasyOCR によるテキスト認識
 
-- `ch_sim`（簡体字漢字）および `en`（英語）モデルを読み込みます。  
+- `ja`（日本語）および `en`（英語）モデルを読み込みます。  
 - YOLOv11 によって検出された各バウンディングボックス領域を元画像から切り出します。  
 - 切り出した画像に対して EasyOCR を適用し、テキストを取得します。  
 
 ```python
 import easyocr
-reader = easyocr.Reader(['ch_sim','en'])
+reader = easyocr.Reader(['ja','en'])
 # ...（画像を切り出した後に実行）
 ocr_text = reader.readtext(cropped_img, detail=0)
 ```
@@ -146,7 +146,7 @@ ocr_text = reader.readtext(cropped_img, detail=0)
 
 ### フォント設定の重要ポイント
 
-漢字文字を `matplotlib` 上で正しく表示するため、以下の設定を行っています：
+日本語文字を `matplotlib` 上で正しく表示するため、以下の設定を行っています：
 
 1. `fonts-wqy-zenhei` フォントパッケージをインストール  
 2. `matplotlib` のフォントキャッシュ（例：`/root/.cache/matplotlib`）を削除  
