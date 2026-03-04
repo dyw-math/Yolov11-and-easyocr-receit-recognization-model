@@ -1,7 +1,9 @@
 # YOLOv11 & EasyOCR スマートレシート認識システム
 
 ## 1. プロジェクト概要
-
+Class: TEL, Confidence: 0.78, OCR: '075-315-2221'  
+Class: total, Confidence: 0.56, OCR: '343'  
+Class: date, Confidence: 0.54, OCR: '2024年07月24日'  
 <table>
   <tr>
     <td><img src="c27f28e9779c7b1b3d655afb3746b9d2.png" width="350" alt="image1"></td>
